@@ -9,7 +9,7 @@ echo "-- Q1 --"
 # Example output:
 # 14 book
 # 10 cover
-mostCommonWords=$()
+mostCommonWords=$(cat * | grep -oE '[[:alnum:]]+' | tr '[:upper:]' '[:lower:]' | sort | uniq -c | sort -nr | head)
 # Prints the mostCommonWords
 echo "Most common words in my book:"
 echo "$mostCommonWords"
