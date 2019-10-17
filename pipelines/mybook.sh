@@ -26,7 +26,7 @@ echo "-- Q2 --"
 #
 # Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts
 # Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean
-linesFromTheBook=$()
+linesFromTheBook=$(cat 00-intro.txt 01-chapter1.txt 02-chapter2.txt | tr -d '\n' |tr '.' '\n' | head -n 7)
 echo "Listing of lines from the book:"
 echo "$linesFromTheBook"
 
