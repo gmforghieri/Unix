@@ -8,7 +8,7 @@ cd ./../data/apacheLog || exit
 echo "-- Q1 --"
 # Write a pipeline that from access_log get all POST requests and displays time, clientIP, path, statusCode, size
 # For example: 10/Mar/2004:12:02:59,10.0.0.153,/cgi-bin/mailgraph2.cgi,200,2987
-accessData=$()
+accessData=$(grep 'POST' access_log | awk '{print $4","$1","$7","$9","$10}' | cut -c 2- )
 # Print accessData
 echo "Access data:"
 echo "$accessData"
