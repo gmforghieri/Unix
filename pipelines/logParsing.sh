@@ -29,7 +29,7 @@ echo "-- Q3 --"
 # Write a pipeline that returns the amount and IP of the client that did the most POST requests
 # so for example: 20 192.168.0.1
 # hint: you could re-use accessData to make it easier
-mostRequests=$()
+mostRequests=$(grep 'POST' access_log | awk '{print $4,$1,$7,$9,$10}' | cut -c 2- | awk '{print $2}' | sort | uniq -c | sort -rn | head -1)
 echo "The most requests where done by:"
 echo "$mostRequests"
 
