@@ -19,7 +19,7 @@ echo "-- Q2 --"
 # Write a pipeline that returns the IP and path of larges size of the response to a POST request
 # so for example: 192.168.0.1,/actions/logout
 # hint: you could re-use accessData to make it easier
-largestResponse=$()
+largestResponse=$(grep 'POST' access_log | awk '{print $4,$1,$7,$9,$10}' | cut -c 2- | sort -k 5 -n | tail -1 | awk '{print $2","$3}')
 echo "The largest Response was to:"
 echo "$largestResponse"
 
