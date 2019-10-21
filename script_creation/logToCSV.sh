@@ -8,3 +8,6 @@
 # This can be done by piping the output to a file.
 # example: './logToCSV access_log > output.csv'
 # It could take some time to convert all of access_log. Consider using a small subset for testing.
+inputFile="$1"
+csvOutput=$(cat $inputFile | awk '{print $1", "$4", "$6", "$7", "$9", "$10}' | sed 's/"//' | sed 's/\[//')
+echo "$csvOutput"
